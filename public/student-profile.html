@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Student Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom CSS (for overrides or additional styles) -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .container {
+        max-width: 960px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .dashboard-nav {
+        /* Reusing styles from dashboard */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+      }
+      .dashboard-nav a {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        flex-grow: 1;
+        min-width: 150px;
+      }
+      .dashboard-nav a:hover {
+        background-color: #0056b3;
+      }
+      .profile-display,
+      .profile-form {
+        padding: 20px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+      .profile-display p {
+        margin-bottom: 10px;
+      }
+      .profile-display strong {
+        color: #555;
+      }
+      .edit-profile-btn {
+        background-color: #ffc107;
+        color: #333;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px;
+      }
+      .edit-profile-btn:hover {
+        background-color: #e0a800;
+      }
+      /* Reusing form-group, input[type="text"], etc. styles from auth pages */
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+      }
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+      .form-group input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+      .form-group input[type="submit"]:hover {
+        background-color: #218838;
+      }
+      .cancel-edit-btn {
+        background-color: #6c757d;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .cancel-edit-btn:hover {
+        background-color: #5a6268;
+      }
+      .error-message,
+      .success-message {
+        text-align: center;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="index.html" style="color: white; text-decoration: none"
+          >Internship Management Portal</a
+        >
+      </h1>
+      <nav>
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="index.html">Browse Internships</a>
+        <a href="student-applications.html">My Applications</a>
+        <button id="logoutBtn">Logout</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="container">
+        <h2>My Profile</h2>
+        <div id="profileDisplay" class="profile-display">
+          <p>
+            <strong>First Name:</strong> <span id="displayFirstName"></span>
+          </p>
+          <p><strong>Last Name:</strong> <span id="displayLastName"></span></p>
+          <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+          <p><strong>Major:</strong> <span id="displayMajor">N/A</span></p>
+          <p>
+            <strong>University:</strong> <span id="displayUniversity">N/A</span>
+          </p>
+          <p><strong>GPA:</strong> <span id="displayGPA">N/A</span></p>
+          <p>
+            <strong>Resume Link:</strong>
+            <span id="displayResumeLink">N/A</span>
+          </p>
+          <button id="editProfileBtn" class="edit-profile-btn">
+            Edit Profile
+          </button>
+        </div>
+
+        <div id="profileEditForm" class="profile-form" style="display: none">
+          <h3>Edit Profile</h3>
+          <form id="studentProfileForm">
+            <div class="form-group">
+              <label for="editFirstName">First Name:</label>
+              <input
+                type="text"
+                id="editFirstName"
+                name="first_name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editLastName">Last Name:</label>
+              <input type="text" id="editLastName" name="last_name" required />
+            </div>
+            <div class="form-group">
+              <label for="editEmail">Email:</label>
+              <input type="email" id="editEmail" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="editMajor">Major:</label>
+              <input type="text" id="editMajor" name="major" />
+            </div>
+            <div class="form-group">
+              <label for="editUniversity">University:</label>
+              <input type="text" id="editUniversity" name="university" />
+            </div>
+            <div class="form-group">
+              <label for="editGPA">GPA:</label>
+              <input type="number" step="0.01" id="editGPA" name="gpa" />
+            </div>
+            <div class="form-group">
+              <label for="editResumePath">Resume Link:</label>
+              <input
+                type="text"
+                id="editResumePath"
+                name="resume_path"
+                placeholder="e.g., Google Drive link, Dropbox link"
+              />
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Save Changes" />
+            </div>
+            <button type="button" id="cancelEditBtn" class="cancel-edit-btn">
+              Cancel
+            </button>
+            <p id="formMessage" class="error-message"></p>
+          </form>
+        </div>
+
+        <p id="pageMessage" class="error-message"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Internship Management</p>
+    </footer>
+
+    <script src="auth-status.js"></script>
+    <script src="student-profile.js"></script>
+  </body>
+</html>

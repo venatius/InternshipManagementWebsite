@@ -1,0 +1,52 @@
+    <!-- This content is intended to be inserted into a modal or a dedicated page -->
+    <div id="internshipModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="formTitle">Post New Internship</h2>
+            <form id="internshipForm">
+                <input type="hidden" id="internship_id" name="internship_id">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type:</label>
+                    <select id="type" name="type" required>
+                        <option value="">Select Type</option>
+                        <option value="on-site">On-site</option>
+                        <option value="remote">Remote</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="required_skills">Required Skills (comma-separated):</label>
+                    <input type="text" id="required_skills" name="required_skills">
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salary (USD):</label>
+                    <input type="number" step="0.01" id="salary" name="salary">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (e.g., "3 months", "Summer 2025"):</label>
+                    <input type="text" id="duration" name="duration" required>
+                </div>
+                <div class="form-group">
+                    <label for="deadline">Application Deadline:</label>
+                    <input type="date" id="deadline" name="deadline" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save Internship">
+                </div>
+                <p id="formMessage" class="error-message"></p>
+            </form>
+        </div>
+    </div>
+    

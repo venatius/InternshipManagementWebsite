@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+.env
+npm-debug.log
+*.log
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Other common ignore files (optional, but good practice)
+Thumbs.db

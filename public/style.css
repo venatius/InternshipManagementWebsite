@@ -1,0 +1,210 @@
+/* Basic Reset & Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* Header Styles */
+header {
+  background-color: #007bff; /* Primary Bootstrap blue */
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+header nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+header nav button {
+  background-color: #dc3545; /* Bootstrap danger red */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+header nav button:hover {
+  background-color: #c82333;
+}
+
+/* Main Content Area */
+main {
+  padding: 20px 0; /* Add vertical padding */
+}
+
+/* General Section & Container Styles (Bootstrap will handle most of this now) */
+.container {
+  max-width: 960px; /* Bootstrap's default containers are 1140px, but 960px is fine */
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles (using Bootstrap's form-group, form-control, btn classes) */
+.form-group {
+  margin-bottom: 1rem; /* Spacing for form groups */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Error and Success Messages */
+.error-message {
+  color: #dc3545; /* Bootstrap danger */
+  background-color: #f8d7da; /* Light red background */
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+.success-message {
+  color: #28a745; /* Bootstrap success */
+  background-color: #d4edda; /* Light green background */
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+/* Internship List / Application List Items */
+.internship-item,
+.application-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.internship-item h3,
+.application-item h3 {
+  margin-top: 0;
+  color: #0056b3; /* A slightly darker blue for headings */
+}
+
+/* Specific button styles for non-Bootstrap buttons or overrides */
+.add-internship-btn,
+.edit-profile-btn,
+.cancel-edit-btn {
+  /* These will be overridden by Bootstrap btn classes in HTML */
+}
+
+/* Reusable dashboard navigation */
+.dashboard-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+.dashboard-nav a {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  flex-grow: 1;
+  min-width: 150px;
+}
+.dashboard-nav a:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #343a40; /* Bootstrap dark background */
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Modal styles (from previous steps, keep them for custom modals) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1050; /* Sit on top, higher than Bootstrap's default */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* Adjust margin for better centering */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%; /* Responsive width */
+  max-width: 600px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
